@@ -2,4 +2,10 @@
 Intel,Dell,Integrated,500,Mechanical,1,204,false,null,null,true
 Intel,Philips,Integrated,1000,Mechanical,2,205,false,true,false,null
 
+Asus,Dell,nvidia,1500,mechanical,3,304,false,true,false,null
+
+Asus,Dell,nvidia,1500,mechanical,3,304,False,True,False,null
+
+Asus,Dell,nvidia,1500,mechanical,3,304,False,True,False,null
+
 Asus,Dell,nvidia,1500,mechanical,3,304,False,True,False,null

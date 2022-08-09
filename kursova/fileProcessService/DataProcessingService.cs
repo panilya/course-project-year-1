@@ -12,20 +12,13 @@ namespace kursova.fileProcessService
 
         public List<ComputerBase> ReadFromDatabase()
         {
-            List<ComputerBase> computers = ReadData();
-
-            Console.Write(computers);
-            return computers;
-
+            return ReadData();
         }
 
         public void WriteToDatabase(List<ComputerBase> data)
         {
             WriteData(data);
-
-
         }
-
 
         protected abstract List<ComputerBase> ReadData();
 

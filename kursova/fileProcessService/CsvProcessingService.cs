@@ -24,7 +24,7 @@ namespace kursova.fileProcessService
                 csv.ReadHeader();
                 while (csv.Read())
                 {
-                    if (csv.GetField(10).Equals("true") || csv.GetField(10).Equals("false"))
+                    if (csv.GetField(10).ToLower().Equals("true") || csv.GetField(10).ToLower().Equals("false"))
                     {
                         string processorType = csv.GetField<string>(0);
                         string monitorType = csv.GetField<string>(1);
@@ -36,7 +36,7 @@ namespace kursova.fileProcessService
                         bool isRepairing = csv.GetField<bool>(7);
                         bool isHighPerformance = csv.GetField<bool>(10);
                         records.Add(new NewComputer(processorType, monitorType, graphicCardType, driveSize, keyboardType, idNumber, classRoomNumber, isRepairing, isHighPerformance));
-                    } else if (csv.GetField(8).Equals("false") || csv.GetField(8).Equals("false") && csv.GetField(9).Equals("true") || csv.GetField(9).Equals("false")) {
+                    } else if (csv.GetField(8).ToLower().Equals("false") || csv.GetField(8).ToLower().Equals("false") && csv.GetField(9).ToLower().Equals("true") || csv.GetField(9).ToLower().Equals("false")) {
                         string processorType = csv.GetField<string>(0);
                         string monitorType = csv.GetField<string>(1);
                         string graphicCardType = csv.GetField<string>(2);
