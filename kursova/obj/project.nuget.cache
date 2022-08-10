@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "G3fppiKz6WmfADGVYwAjEugHGj9Io+4skh4ezcBII3yNCwmZ9YqeYjhaCjhm+YIayhsvM/d6+mHq1gBEnbQFTg==",
+  "dgSpecHash": "H2BjAIfVPD/7I9y3lXU4hmzanvV5uFoVLTLpldizQrGNJKSSf7TuAO7QeygBxcOHBvl9Zo2Miy8sSx+HB5A03w==",
   "success": true,
   "projectFilePath": "C:\\Users\\panil\\dev\\kursova\\kursova\\kursova\\kursova.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\panil\\.nuget\\packages\\csvhelper\\28.0.1\\csvhelper.28.0.1.nupkg.sha512"
+    "C:\\Users\\panil\\.nuget\\packages\\csvhelper\\28.0.1\\csvhelper.28.0.1.nupkg.sha512",
+    "C:\\Users\\panil\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }

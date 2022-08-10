@@ -27,24 +27,14 @@ namespace kursova
             InitializeComponent();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void HomePanelButton_Click(object sender, RoutedEventArgs e)
         {
-            DataProcessingService processingService = new CsvProcessingService();
-            StringBuilder s = new StringBuilder();
-            List<ComputerBase> list = processingService.ReadFromDatabase();
-
-            string result = list[0].ToString() + list[1].ToString();
-
-            var pc1 = new OldComputer("Asus", "Dell", "nvidia", 1500, "mechanical", 3, 304, true, false);
-
-            processingService.WriteToDatabase(new List<ComputerBase> { pc1 });
-
-            output.Text = result + pc1.ToString();
+            MainFrame.Content = new Home();
         }
 
-        private void output_TextChanged(object sender, TextChangedEventArgs e)
+        private void DatabasePanelButton_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Content = new Database();
         }
     }
 }

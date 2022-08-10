@@ -1,0 +1,55 @@
+﻿<Page x:Class="kursova.Database"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:kursova"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="900"
+      Title="Database">
+
+    <Grid x:Name="DatabasePage" Background="White">
+        <TabControl>
+            <TabItem x:Name="DatabaseTabView" Header="Перегляд">
+                <Grid>
+                    <ListView x:Name="List">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Processor Type" Width="90" DisplayMemberBinding="{Binding Path=ProcessorType}"/>
+                                <GridViewColumn Header="Monitor Type" Width="90" DisplayMemberBinding="{Binding Path=MonitorType}"/>
+                                <GridViewColumn Header="GPU" Width="90" DisplayMemberBinding="{Binding Path=GraphicCardType}"/>
+                                <GridViewColumn Header="Drive Size" Width="70" DisplayMemberBinding="{Binding Path=DriveSize}"/>
+                                <GridViewColumn Header="Keyboard Type" Width="100" DisplayMemberBinding="{Binding Path=KeyboardType}"/>
+                                <GridViewColumn Header="ID" Width="40" DisplayMemberBinding="{Binding Path=IdNumber}"/>
+                                <GridViewColumn Header="Room №" Width="70" DisplayMemberBinding="{Binding Path=ClassRoomNumber}"/>
+                                <GridViewColumn Header="isRepairing" Width="70" DisplayMemberBinding="{Binding Path=IsRepairing}"/>
+                                <GridViewColumn Header="cdRom" Width="70" DisplayMemberBinding="{Binding Path=CdRom}"/>
+                                <GridViewColumn Header="FLOPPY" Width="70" DisplayMemberBinding="{Binding Path=Floppy}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Button VerticalAlignment="Bottom" Content="Обновити" Margin="0,0,0,5" Width="100" x:Name="DatabaseViewUpdateButton" Click="DatabaseViewUpdateButton_Click" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Редагування">
+                <Grid>
+                    <DataGrid x:Name="editDataGrid" VerticalAlignment="Top" AutoGenerateColumns="False" Height="480">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Processor Type" Width="90" Binding="{Binding ProcessorType, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridTextColumn Header="Monitor Type" Width="90" Binding="{Binding MonitorType, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn Header="GPU" Width="90" Binding="{Binding GraphicCardType, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn Header="Drive Size" Width="70" Binding="{Binding DriveSize, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn Header="Keyboard Type" Width="100" Binding="{Binding KeyboardType, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn Header="ID" Width="40" Binding="{Binding IdNumber, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn Header="Room №" Width="70" Binding="{Binding ClassRoomNumber, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridCheckBoxColumn Header="isRepairing" Width="70" Binding="{Binding IsRepairing, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridCheckBoxColumn Header="cdRom" Width="70" Binding="{Binding CdRom, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridCheckBoxColumn Header="Floppy" Width="70" Binding="{Binding Floppy, UpdateSourceTrigger=PropertyChanged}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="DatabaseEdit_UpdateButton" Content="Зберегти" VerticalAlignment="Bottom" Margin="0,0,0,10" Width="130" Click="DatabaseEdit_UpdateButton_Click" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Page>

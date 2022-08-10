@@ -21,3 +21,8 @@ C:\Users\panil\dev\kursova\kursova\kursova\obj\Debug\net6.0-windows\kursova.genr
 C:\Users\panil\dev\kursova\kursova\kursova\obj\Debug\net6.0-windows\ref\kursova.dll
 C:\Users\panil\dev\kursova\kursova\kursova\bin\Debug\net6.0-windows\CsvHelper.dll
 C:\Users\panil\dev\kursova\kursova\kursova\obj\Debug\net6.0-windows\kursova.csproj.CopyComplete
+C:\Users\panil\dev\kursova\kursova\kursova\obj\Debug\net6.0-windows\Database.g.cs
+C:\Users\panil\dev\kursova\kursova\kursova\obj\Debug\net6.0-windows\Database.baml
+C:\Users\panil\dev\kursova\kursova\kursova\obj\Debug\net6.0-windows\Home.g.cs
+C:\Users\panil\dev\kursova\kursova\kursova\obj\Debug\net6.0-windows\Home.baml
+C:\Users\panil\dev\kursova\kursova\kursova\bin\Debug\net6.0-windows\Newtonsoft.Json.dll

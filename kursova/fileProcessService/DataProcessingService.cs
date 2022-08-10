@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,19 +11,19 @@ namespace kursova.fileProcessService
     public abstract class DataProcessingService
     {
 
-        public List<ComputerBase> ReadFromDatabase()
+        public BindingList<ComputerBase> ReadFromDatabase()
         {
             return ReadData();
         }
 
-        public void WriteToDatabase(List<ComputerBase> data)
+        public void WriteToDatabase(object data)
         {
             WriteData(data);
         }
 
-        protected abstract List<ComputerBase> ReadData();
+        protected abstract BindingList<ComputerBase> ReadData();
 
-        protected abstract void WriteData(List<ComputerBase> data);
+        protected abstract void WriteData(object data);
 
     }
 }
