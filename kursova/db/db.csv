@@ -1,3 +1,3 @@
 ProcessorType,MonitorType,GraphicCardType,DriveSize,KeyboardType,IdNumber,ClassRoomNumber,IsRepairing,CdRom,Floppy
 Intel,Philips,Integrated,1000,Mechanical,3,205,False,True,False
-AMD,Asus,High-Performance,500,Mechanical,6,230,True,True,False
+AMD,Asus,High-Performance,500,Mechanical,6,230,True,True,True
