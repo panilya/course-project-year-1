@@ -45,9 +45,151 @@ namespace kursova
                 MessageBox.Show(ex.Message);
             }
 
-            List.ItemsSource = data;
+            List.ItemsSource = data.ToList();
             editDataGrid.ItemsSource = data;
             data.ListChanged += BindingList_ListChanged;
+            // Filtering
+            FilterBy.ItemsSource = new string[] { "Processor Type", "Monitor Type", "Graphic Card Type", "Drive Size", "Keyboard Type", "Id Number", "Class Room Number", "IsRepairing", "CdRom", "Floppy" };
+            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(List.ItemsSource);
+            List.Items.Filter = GetFilter();
+        }
+
+        public Predicate<object> GetFilter()
+        {
+            switch (FilterBy.SelectedItem as string)
+            {
+                case "Processor Type":
+                    return ProcessorTypeFilter;
+                case "Monitor Type":
+                    return MonitorTypeFilter;
+                case "Graphic Card Type":
+                    return GraphicCardTypeFilter;
+                case "Drive Size":
+                    return DriveSizeFilter;
+                case "Keyboard Type":
+                    return KeyboardTypeFilter;
+                case "Id Number":
+                    return IdNumberFilter;
+                case "Class Room Number":
+                    return ClassRoomNumberFilter;
+                case "IsRepairing":
+                    return IsRepairingFilter;
+                case "CdRom":
+                    return CdRomFilter;
+                case "Floppy":
+                    return FloppyFilter;
+            }
+            return new Predicate<object>(ProcessorTypeFilter);
+        }
+
+        private bool ProcessorTypeFilter(object obj)
+        {
+            if (obj == null)
+            {
+                MessageBox.Show("Enter variable to search");
+            } 
+
+            var FilterObj = obj as ComputerBase;
+            return FilterObj.ProcessorType.Contains(FilterTextbox.Text, StringComparison.OrdinalIgnoreCase);
+        }
+
+        private bool MonitorTypeFilter(object obj)
+        {
+            if (obj == null)
+            {
+                MessageBox.Show("Enter variable to search");
+            }
+
+            var FilterObj = obj as ComputerBase;
+            return FilterObj.MonitorType.Contains(FilterTextbox.Text, StringComparison.OrdinalIgnoreCase);
+        }
+
+        private bool GraphicCardTypeFilter(object obj)
+        {
+            if (obj == null)
+            {
+                MessageBox.Show("Enter variable to search");
+            }
+
+            var FilterObj = obj as ComputerBase;
+            return FilterObj.GraphicCardType.Contains(FilterTextbox.Text, StringComparison.OrdinalIgnoreCase);
+        }
+
+        private bool DriveSizeFilter(object obj)
+        {
+            if (obj == null)
+            {
+                MessageBox.Show("Enter variable to search");
+            }
+
+            var FilterObj = obj as ComputerBase;
+            return FilterObj.DriveSize.ToString().Contains(FilterTextbox.Text, StringComparison.OrdinalIgnoreCase);
+        }
+
+        private bool KeyboardTypeFilter(object obj)
+        {
+            if (obj == null)
+            {
+                MessageBox.Show("Enter variable to search");
+            }
+
+            var FilterObj = obj as ComputerBase;
+            return FilterObj.KeyboardType.Contains(FilterTextbox.Text, StringComparison.OrdinalIgnoreCase);
+        }
+
+        private bool IdNumberFilter(object obj)
+        {
+            if (obj == null)
+            {
+                MessageBox.Show("Enter variable to search");
+            }
+
+            var FilterObj = obj as ComputerBase;
+            return FilterObj.IdNumber.ToString().Contains(FilterTextbox.Text, StringComparison.OrdinalIgnoreCase);
+        }
+
+        private bool ClassRoomNumberFilter(object obj)
+        {
+            if (obj == null)
+            {
+                MessageBox.Show("Enter variable to search");
+            }
+
+            var FilterObj = obj as ComputerBase;
+            return FilterObj.ClassRoomNumber.ToString().Contains(FilterTextbox.Text, StringComparison.OrdinalIgnoreCase);
+        }
+
+        private bool IsRepairingFilter(object obj)
+        {
+            if (obj == null)
+            {
+                MessageBox.Show("Enter variable to search");
+            }
+
+            var FilterObj = obj as ComputerBase;
+            return FilterObj.IsRepairing.ToString().Contains(FilterTextbox.Text, StringComparison.OrdinalIgnoreCase);
+        }
+
+        private bool CdRomFilter(object obj)
+        {
+            if (obj == null)
+            {
+                MessageBox.Show("Enter variable to search");
+            }
+
+            var FilterObj = obj as ComputerBase;
+            return FilterObj.CdRom.ToString().Contains(FilterTextbox.Text, StringComparison.OrdinalIgnoreCase);
+        }
+
+        private bool FloppyFilter(object obj)
+        {
+            if (obj == null)
+            {
+                MessageBox.Show("Enter variable to search");
+            }
+
+            var FilterObj = obj as ComputerBase;
+            return FilterObj.Floppy.ToString().Contains(FilterTextbox.Text, StringComparison.OrdinalIgnoreCase);
         }
 
         private void BindingList_ListChanged(object? sender, ListChangedEventArgs e)
@@ -71,9 +213,21 @@ namespace kursova
             List.ItemsSource = csvProcessingService.ReadFromDatabase();
         }
 
-        private void DatabaseEdit_UpdateButton_Click(object sender, RoutedEventArgs e)
+        private void FilterTextbox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if (FilterTextbox.Text == null)
+            {
+                List.Items.Filter = null;
+            } 
+            else
+            {
+                List.Items.Filter = GetFilter();
+            }
+        }
 
+        private void FilterBy_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            List.Items.Filter = GetFilter();
         }
     }
 }

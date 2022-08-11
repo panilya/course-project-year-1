@@ -16,9 +16,6 @@ namespace kursova.fileProcessService
     {
         protected override BindingList<ComputerBase> ReadData()
         {
-
-            //var computers = new List<ComputerBase>();
-
             BindingList<ComputerBase> computers = null;
 
             using (var streamReader = new StreamReader("C:/Users/panil/dev/kursova/kursova/kursova/db/db.csv"))
@@ -26,7 +23,6 @@ namespace kursova.fileProcessService
             {
                 computers = new BindingList<ComputerBase>(csv.GetRecords<ComputerBase>().ToList());
             }
-
             return computers;
         }
 

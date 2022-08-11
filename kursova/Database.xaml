@@ -12,7 +12,7 @@
         <TabControl>
             <TabItem x:Name="DatabaseTabView" Header="Перегляд">
                 <Grid>
-                    <ListView x:Name="List">
+                    <ListView x:Name="List" Margin="0,0,0,60">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Processor Type" Width="90" DisplayMemberBinding="{Binding Path=ProcessorType}"/>
@@ -28,26 +28,27 @@
                             </GridView>
                         </ListView.View>
                     </ListView>
-                    <Button VerticalAlignment="Bottom" Content="Обновити" Margin="0,0,0,5" Width="100" x:Name="DatabaseViewUpdateButton" Click="DatabaseViewUpdateButton_Click" />
+                    <ComboBox Name="FilterBy" SelectionChanged="FilterBy_SelectionChanged" SelectedIndex="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="30,10,0,10" Width="180"/>
+                    <TextBox x:Name="FilterTextbox" TextChanged="FilterTextbox_TextChanged" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="240, 10, 0, 12" Width="180"/>
+                    <Label Content="Фільтр" HorizontalAlignment="Left" Margin="95,0,0,35"  VerticalAlignment="Bottom"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Редагування">
                 <Grid>
-                    <DataGrid x:Name="editDataGrid" VerticalAlignment="Top" AutoGenerateColumns="False" Height="480">
+                    <DataGrid x:Name="editDataGrid" ItemsSource="{Binding ComputerBase}" VerticalAlignment="Top" Height="480" CanUserSortColumns="True" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Processor Type" Width="90" Binding="{Binding ProcessorType, UpdateSourceTrigger=PropertyChanged}" />
-                            <DataGridTextColumn Header="Monitor Type" Width="90" Binding="{Binding MonitorType, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="GPU" Width="90" Binding="{Binding GraphicCardType, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="Drive Size" Width="70" Binding="{Binding DriveSize, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="Keyboard Type" Width="100" Binding="{Binding KeyboardType, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="ID" Width="40" Binding="{Binding IdNumber, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="Room №" Width="70" Binding="{Binding ClassRoomNumber, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridCheckBoxColumn Header="isRepairing" Width="70" Binding="{Binding IsRepairing, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridCheckBoxColumn Header="cdRom" Width="70" Binding="{Binding CdRom, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridCheckBoxColumn Header="Floppy" Width="70" Binding="{Binding Floppy, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn CanUserSort="True" Header="Processor Type" Width="90" Binding="{Binding ProcessorType, UpdateSourceTrigger=PropertyChanged}" SortMemberPath="ProcessorType" />
+                            <DataGridTextColumn CanUserSort="True" Header="Monitor Type" Width="90" Binding="{Binding MonitorType, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn CanUserSort="True" Header="GPU" Width="90" Binding="{Binding GraphicCardType, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn CanUserSort="True" Header="Drive Size" Width="70" Binding="{Binding DriveSize, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn CanUserSort="True" Header="Keyboard Type" Width="100" Binding="{Binding KeyboardType, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn CanUserSort="True" Header="ID" Width="40" Binding="{Binding IdNumber, UpdateSourceTrigger=PropertyChanged}" SortDirection="Ascending" SortMemberPath="IdNumber" />
+                            <DataGridTextColumn CanUserSort="True" Header="Room №" Width="70" Binding="{Binding ClassRoomNumber, UpdateSourceTrigger=PropertyChanged}" SortMemberPath="ClassRoomNumber" />
+                            <DataGridCheckBoxColumn CanUserSort="True" Header="isRepairing" Width="70" Binding="{Binding IsRepairing, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridCheckBoxColumn CanUserSort="True" Header="cdRom" Width="70" Binding="{Binding CdRom, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridCheckBoxColumn CanUserSort="True" Header="Floppy" Width="70" Binding="{Binding Floppy, UpdateSourceTrigger=PropertyChanged}"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button x:Name="DatabaseEdit_UpdateButton" Content="Зберегти" VerticalAlignment="Bottom" Margin="0,0,0,10" Width="130" Click="DatabaseEdit_UpdateButton_Click" />
                 </Grid>
             </TabItem>
         </TabControl>
