@@ -52,6 +52,10 @@ namespace kursova
             FilterBy.ItemsSource = new string[] { "Processor Type", "Monitor Type", "Graphic Card Type", "Drive Size", "Keyboard Type", "Id Number", "Class Room Number", "IsRepairing", "CdRom", "Floppy" };
             //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(List.ItemsSource);
             List.Items.Filter = GetFilter();
+            //Sorting
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(List.ItemsSource); 
+            view.SortDescriptions.Add(new SortDescription("IdNumber", ListSortDirection.Ascending));
+
         }
 
         public Predicate<object> GetFilter()
